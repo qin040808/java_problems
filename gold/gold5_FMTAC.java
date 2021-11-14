@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-public class Main {
+public class gold5_FMTAC {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         int t = sc.nextInt();
