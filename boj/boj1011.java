@@ -24,5 +24,6 @@ public class boj1011 {
         for (int e:arr) {
             System.out.println(e);
         }
+        sc.close();
     }
 }

@@ -40,5 +40,6 @@ public class boj1071 {
         for (int e : arr) {
             System.out.print(e + " ");
         }
+        sc.close();
     }
 }
