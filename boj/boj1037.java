@@ -8,6 +8,7 @@ public class boj1037 {
         for (int i = 0; i < sum.length; i++) {
             sum[i]=sc.nextInt();
         }
+        sc.close();
         int min=sum[0];
         int max=0;
         for (int i : sum) {
