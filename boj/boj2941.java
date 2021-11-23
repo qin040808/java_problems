@@ -4,6 +4,7 @@ public class boj2941 {
     public static void main(String[] args) {
         Scanner in = new Scanner(System.in);
         String s = in.next();
+        in.close();
         s=s.replace(" ","");
         s=s.replaceAll("c=","a");
         s=s.replaceAll("s=","a");

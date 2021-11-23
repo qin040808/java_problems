@@ -6,6 +6,7 @@ public class boj2581 {
         int c= in.nextInt();
         int sum = 0;
         int min=c;
+        in.close();
         for (int i = a; i <=c ; i++) {
             if(ifreal(i)){
                 if(min>i){
