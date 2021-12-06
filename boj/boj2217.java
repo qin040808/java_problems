@@ -9,6 +9,7 @@ public class boj2217 {
         for (int i = 0; i < num.length; i++) {
             num[i]=sc.nextInt();
         }
+        sc.close();
         Arrays.sort(num);
         int max=0;
         for (int i = 0; i < num.length; i++) {
