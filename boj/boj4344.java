@@ -14,6 +14,7 @@ public class boj4344 {
                 a[i][j] = in.nextInt();
             }
         }
+        in.close();
         for (int i = 0; i < n; i++) {
             sum = 0;
             num = 0;
