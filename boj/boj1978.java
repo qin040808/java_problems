@@ -8,6 +8,7 @@ public class boj1978 {
         for (int i = 0; i < a; i++) {
             b[i] = in.nextInt();
         }
+        in.close();
         int sum=0;
         for(int c:b) {
             if(ifreal(c)){

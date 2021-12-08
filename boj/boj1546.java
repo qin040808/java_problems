@@ -8,6 +8,7 @@ public class boj1546 {
         for (int i = 0; i < a; i++) {
             b[i] = in.nextInt();
         }
+        in.close();
         double max=0;
         for (int i = 0; i < a; i++) {
             if(b[i]>max){

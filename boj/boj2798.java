@@ -10,6 +10,7 @@ public class boj2798 {
         for (int i = 0; i < n; i++) {
             num[i]=in.nextInt();
         }
+        in.close();
         for (int i = 0; i < n; i++) {
             for (int j = i+1; j < n; j++) {
                 for (int k = j+1; k < n; k++) {
