@@ -4,6 +4,7 @@ public class boj1157 {
     public static void main(String[] args) {
         Scanner in = new Scanner(System.in);
         String s = in.next();
+        in.close();
         s = s.toLowerCase();
         int[] al = new int[26];
         for (int j = 97, i = 0; j <= 122; j++, i++) {

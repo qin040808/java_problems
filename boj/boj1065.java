@@ -4,6 +4,7 @@ public class boj1065 {
     public static void main(String[] args) {
         Scanner in = new Scanner(System.in);
         int n = in.nextInt();
+        in.close();
         int sum = 0;
         for (int i = 1; i <= n; i++) {
             if (i < 100) {
