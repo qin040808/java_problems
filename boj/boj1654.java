@@ -12,26 +12,23 @@ public class boj1654 {
         }
         Arrays.sort(n);
         long res;
-        long cn = n[0];
-        while(true){
+        long cn = n[l-1];
+        long sum=0;
+        while(cn>0){
             res = 0;
             for (int i = 0; i < n.length; i++) {
-                for (int j = 1; j <= m; j++,res++) {
-                    if(n[i]-j*cn<=0) {
-                        break;
-                    }
+                if(cn!=0){
+                    res+=n[i]/cn;
                 }
             }
-            if(res==m){
-                break;
+            if(res>=m){
+                if(cn>sum){
+                    sum=cn;
+                }
             }
-            if(res<=m/2){
-                cn/=2;
-            }else{
-                cn--;
-            }
+            cn--;
         }
-        System.out.println(cn);
+        System.out.println(sum);
         in.close();
     }
 }
