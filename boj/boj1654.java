@@ -11,24 +11,25 @@ public class boj1654 {
             n[i] = in.nextLong();
         }
         Arrays.sort(n);
-        long res;
+        long res=0;
         long cn = n[l-1];
-        long sum=0;
-        while(cn>0){
-            res = 0;
+        long st = 1;
+        long tmp;
+        long sum;
+        while(st<=cn){
+            tmp = (st+cn)/2;
+            sum=0;
             for (int i = 0; i < n.length; i++) {
-                if(cn!=0){
-                    res+=n[i]/cn;
-                }
+                sum+=n[i]/tmp;
             }
-            if(res>=m){
-                if(cn>sum){
-                    sum=cn;
-                }
+            if(sum>=m) {
+                st = tmp+1;
+                res=tmp;
+            }else{
+                cn = tmp-1;
             }
-            cn--;
         }
-        System.out.println(sum);
+        System.out.println(res);
         in.close();
     }
 }
