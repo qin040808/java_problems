@@ -1,39 +1,45 @@
-import java.util.Scanner;
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.OutputStreamWriter;
 import java.util.Stack;
 
 public class boj1874 {
-    public static void main(String[] args) {
-        Scanner in = new Scanner(System.in);
-        int l = in.nextInt();
+    public static void main(String[] args) throws NumberFormatException, IOException {
+        BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        StringBuilder sb = new StringBuilder();
+        int l = Integer.parseInt(br.readLine());
         int n[] = new int[l];
         for (int i = 0; i < n.length; i++) {
-            n[i] = in.nextInt();
+            n[i] = Integer.parseInt(br.readLine());
         }
-        in.close();
         Stack<Integer> s = new Stack<Integer>();
-        String sum = "";
         for (int i = 0,j=1; i < l;) {
             if(s.empty()) {
                     s.push(j);
-                    sum = sum+"+\n";
+                    sb.append('+').append('\n');
                     j++;
             }else {
                 if(s.peek()==n[i]){
                     s.pop();
-                    sum = sum+"-\n";
+                    sb.append('-').append('\n');
                     i++;
                 }else {
                     if(j>l){
-                        sum = "NO";
-                       break;
+                        System.out.println("NO");
+                        return;
                     }
                     s.push(j);
-                    sum = sum+"+\n";
+                    sb.append('+').append('\n');
                     j++;
                 }
             }
         }
-        System.out.println(sum);
+        bw.write(sb.toString());
+        bw.flush();
+        bw.close();
     }
 }
         
