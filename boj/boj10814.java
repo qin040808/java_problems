@@ -4,32 +4,31 @@ public class boj10814 {
     public static void main(String[] args) {
         Scanner in = new Scanner(System.in);
         int l = in.nextInt();
-        String st[] = new String[l];
+        String st[] = new String[l*2];
         for (int i = 0; i < st.length; i++) {
             st[i] = in.next();
         }
         in.close();
-        String tmp;
-        int a,b;
-        int min;
-        String s[] = new String[3];
-        for (int i = 0; i < st.length; i++) {
-            min=i;
-            for (int j = i+1; j < st.length; j++) {
-                s=st[i].split(" ");
-                a=Integer.parseInt(s[0]);
-                s=st[j].split(" ");
-                b=Integer.parseInt(s[0]);
-                if(a>b) {
-                    min = j;
-                }
+        bubbleSort(st, st.length);
+        for (int i = 0; i < st.length; i+=2) {
+            System.out.println(st[i]+" "+st[i+1]);
+        }
+    }
+    static void bubbleSort(String st[], int n) {            
+        String tmp;                           
+        if (n == 1) {
+            return;
+        }
+        for (int i=0; i<n-2; i+=2) {
+            if (Integer.parseInt(st[i]) > Integer.parseInt(st[i+2])) {                         
                 tmp = st[i];
-                st[i] = st[min];
-                st[min] = tmp;
+                st[i] = st[i+2];
+                st[i+2] = tmp;
+                tmp = st[i+1];
+                st[i+1] = st[i+3];
+                st[i+3] = tmp;
             }
         }
-        for (String string : st) {
-            System.out.println(string);
-        }
+        bubbleSort(st, n-1);
     }
 }
