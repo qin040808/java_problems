@@ -7,11 +7,12 @@ public class boj1929 {
 		int n = in.nextInt();
 		for (int i=m; i<=n; i++) {
 			int j;
-			for (j=2; j*j<=i; j++)
+			for (j=2; j*j<=i; j++) {
 				if (i%j == 0) {
 					break;
                 }
-			if ((j*j > i)==(i != 1)) {
+			}
+			if ((j*j > i)&&(i != 1)) {
                 System.out.println(i);
             }
 		}
