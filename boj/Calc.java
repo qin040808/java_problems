@@ -1,0 +1,44 @@
+import java.util.Scanner;
+import java.util.Stack;
+public class Calc {
+    public static void main(String[] args) {
+        Scanner in = new Scanner(System.in);
+        String operation = in.nextLine().replaceAll("\\s","");
+        Stack<String> operator = new Stack<String>();
+        String  firstope[] = operation.split("[+-]");
+        for (int i = 0; i < firstope.length; i++) {
+            for (int j = 0; j < firstope[i].length(); j++) {
+                if(firstope[i].charAt(j) == '*'||firstope[i].charAt(j)=='/') {
+                    operator.push(String.valueOf(firstope[i].charAt(j)));
+                }
+            }
+            String num[] = firstope[i].split("[*/]");
+            firstope[i]=Integer.toString(cacluate(num,operator));
+        }
+        operator.clear();
+        for (String str : (operation.replaceAll("[0-9*/]","")).split("")) {
+            operator.push(str);
+        }
+        System.out.println(cacluate(firstope,operator));
+        in.close();
+    }
+    public static int cacluate(String n[],Stack<String > op) {
+        int sum=Integer.parseInt(n[0]);
+        for (int i = 1; i < n.length && !op.isEmpty(); i++) {
+            if(op.elementAt(0).equals("*")){
+                sum*=(Integer.parseInt(n[i]));
+                op.remove(0);
+            }else if(op.elementAt(0).equals("/")){
+                sum/=(Integer.parseInt(n[i]));
+                op.remove(0);
+            }else if(op.elementAt(0).equals("+")){
+                sum+=(Integer.parseInt(n[i]));
+                op.remove(0);
+            }else {
+                sum-=(Integer.parseInt(n[i]));
+                op.remove(0);
+            }
+        }
+        return sum;
+    }
+}
