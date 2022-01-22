@@ -4,6 +4,27 @@ public class Calc {
     public static void main(String[] args) {
         Scanner in = new Scanner(System.in);
         String operation = in.nextLine().replaceAll("\\s","");
+        
+        System.out.println(calculater(operation));
+        in.close();
+    }
+    public static int cacluate(String n[],Stack<String > op) {
+        int sum=Integer.parseInt(n[0]);
+        for (int i = 1; i < n.length && !op.isEmpty(); i++) {
+            if(op.elementAt(0).equals("*")){
+                sum*=(Integer.parseInt(n[i]));
+            }else if(op.elementAt(0).equals("/")){
+                sum/=(Integer.parseInt(n[i]));
+            }else if(op.elementAt(0).equals("+")){
+                sum+=(Integer.parseInt(n[i]));
+            }else {
+                sum-=(Integer.parseInt(n[i]));
+            }
+            op.remove(0);
+        }
+        return sum;
+    }
+    public static int calculater(String operation) {
         Stack<String> operator = new Stack<String>();
         String  firstope[] = operation.split("[+-]");
         for (int i = 0; i < firstope.length; i++) {
@@ -19,26 +40,7 @@ public class Calc {
         for (String str : (operation.replaceAll("[0-9*/]","")).split("")) {
             operator.push(str);
         }
-        System.out.println(cacluate(firstope,operator));
-        in.close();
-    }
-    public static int cacluate(String n[],Stack<String > op) {
-        int sum=Integer.parseInt(n[0]);
-        for (int i = 1; i < n.length && !op.isEmpty(); i++) {
-            if(op.elementAt(0).equals("*")){
-                sum*=(Integer.parseInt(n[i]));
-                op.remove(0);
-            }else if(op.elementAt(0).equals("/")){
-                sum/=(Integer.parseInt(n[i]));
-                op.remove(0);
-            }else if(op.elementAt(0).equals("+")){
-                sum+=(Integer.parseInt(n[i]));
-                op.remove(0);
-            }else {
-                sum-=(Integer.parseInt(n[i]));
-                op.remove(0);
-            }
-        }
-        return sum;
+        return(cacluate(firstope, operator));
     }
 }
+    
