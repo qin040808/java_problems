@@ -4,25 +4,11 @@ public class Calc {
     public static void main(String[] args) {
         Scanner in = new Scanner(System.in);
         String operation = in.nextLine().replaceAll("\\s","");
-        
-        System.out.println(calculater(operation));
+        Stack<String> inope =  new Stack<String>();
+        //only use when there is * / close to () only those matter
+        //use for by the length of operation can't use regular expression
+        // System.out.println(calculater(operation));
         in.close();
-    }
-    public static int cacluate(String n[],Stack<String > op) {
-        int sum=Integer.parseInt(n[0]);
-        for (int i = 1; i < n.length && !op.isEmpty(); i++) {
-            if(op.elementAt(0).equals("*")){
-                sum*=(Integer.parseInt(n[i]));
-            }else if(op.elementAt(0).equals("/")){
-                sum/=(Integer.parseInt(n[i]));
-            }else if(op.elementAt(0).equals("+")){
-                sum+=(Integer.parseInt(n[i]));
-            }else {
-                sum-=(Integer.parseInt(n[i]));
-            }
-            op.remove(0);
-        }
-        return sum;
     }
     public static int calculater(String operation) {
         Stack<String> operator = new Stack<String>();
@@ -41,6 +27,22 @@ public class Calc {
             operator.push(str);
         }
         return(cacluate(firstope, operator));
+    }
+    public static int cacluate(String n[],Stack<String > op) {
+        int sum=Integer.parseInt(n[0]);
+        for (int i = 1; i < n.length && !op.isEmpty(); i++) {
+            if(op.elementAt(0).equals("*")){
+                sum*=(Integer.parseInt(n[i]));
+            }else if(op.elementAt(0).equals("/")){
+                sum/=(Integer.parseInt(n[i]));
+            }else if(op.elementAt(0).equals("+")){
+                sum+=(Integer.parseInt(n[i]));
+            }else {
+                sum-=(Integer.parseInt(n[i]));
+            }
+            op.remove(0);
+        }
+        return sum;
     }
 }
     
