@@ -5,6 +5,9 @@ public class Calc {
         Scanner in = new Scanner(System.in);
         String operation = in.nextLine().replaceAll("\\s","");
         Stack<String> inope =  new Stack<String>();
+        for (int i = 0; i < operation.length(); i++) {
+            
+        }
         //only use when there is * / close to () only those matter
         //use for by the length of operation can't use regular expression
         // System.out.println(calculater(operation));
