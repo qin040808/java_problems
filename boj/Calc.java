@@ -5,8 +5,14 @@ public class Calc {
         Scanner in = new Scanner(System.in);
         String operation = in.nextLine().replaceAll("\\s","");
         Stack<String> inope =  new Stack<String>();
+        int count = 0;
         for (int i = 0; i < operation.length(); i++) {
-            
+            if(operation.charAt(i)=='('){
+                count++;
+            }else if(operation.charAt(i)==')'){
+                count--;
+                inope.push(Character.toString(operation.charAt(i-1)));
+            }
         }
         //only use when there is * / close to () only those matter
         //use for by the length of operation can't use regular expression
