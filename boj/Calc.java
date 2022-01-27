@@ -6,22 +6,25 @@ public class Calc {
         String operation = in.nextLine().replaceAll("\\s","");
         Stack<String> inope =  new Stack<String>();
         String tempop = "";
-        int count = 0, minus = 0;
+        int count = 0;
         for (int i = 0; i < operation.length(); i++) {
-            if(count>minus){
-                tempop=tempop+Character.toString(operation.charAt(i));
-            }else if(operation.charAt(i)=='('){
+            if(operation.charAt(i)=='(') {
                 count++;
-            }else if(operation.charAt(i)==')'){
-                minus++;
-                inope.push(calculater(tempop));
-            }else{
+            }
+            if(count==0){
                 inope.push(Character.toString(operation.charAt(i)));
+            }else if(operation.charAt(i)==')') {
+                count--;
+            }else {
+                 if(operation.charAt(i+1)=='('||operation.charAt(i+1)==')') {
+                     inope.push(calculater(tempop));
+                     inope.push(Character.toString(operation.charAt(i)));
+                     tempop = "";
+                 }else {
+                    tempop=tempop+Character.toString(operation.charAt(i));
+                 }               
             }
         }
-        //only use when there is * / close to () only those matter
-        //use for by the length of operation can't use regular expression
-        // System.out.println(calculater(operation));
         in.close();
     }
     public static String calculater(String operation) {
