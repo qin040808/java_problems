@@ -4,27 +4,30 @@ public class Calc {
     public static void main(String[] args) {
         Scanner in = new Scanner(System.in);
         String operation = in.nextLine().replaceAll("\\s","");
-        Stack<String> inope =  new Stack<String>();
+        String inope =  "";
+        //1+2*(3-4+(5*6-7)+8)-(9*10) test case
         String tempop = "";
         int count = 0;
         for (int i = 0; i < operation.length(); i++) {
             if(operation.charAt(i)=='(') {
                 count++;
+                i++;
             }
             if(count==0){
-                inope.push(Character.toString(operation.charAt(i)));
+                inope= inope + (Character.toString(operation.charAt(i)));
             }else if(operation.charAt(i)==')') {
                 count--;
             }else {
-                 if(operation.charAt(i+1)=='('||operation.charAt(i+1)==')') {
-                     inope.push(calculater(tempop));
-                     inope.push(Character.toString(operation.charAt(i)));
+                 if(operation.charAt(i+1)=='(') {
+                     inope = inope + (calculater(tempop));
+                     inope = inope + (Character.toString(operation.charAt(i)));
                      tempop = "";
                  }else {
                     tempop=tempop+Character.toString(operation.charAt(i));
                  }               
             }
         }
+        System.out.println(calculater(inope));
         in.close();
     }
     public static String calculater(String operation) {
