@@ -6,7 +6,6 @@ public class Calc {
         String operation = in.nextLine().replaceAll("\\s","");
         String inope =  "";
         Stack<String> ops = new Stack<String>();
-        //1+2*(3-4+(5*6-7)+8)-(9*10) test case
         String tempop = "";
         int count = 0;
         for (int i = 0; i < operation.length(); i++) {
@@ -22,6 +21,7 @@ public class Calc {
                     ops.pop();
                 }else{
                     inope = inope + calculater(tempop);
+                    tempop = "";
                 }
                 count--;
             }else {
