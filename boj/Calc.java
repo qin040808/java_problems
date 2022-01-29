@@ -5,6 +5,7 @@ public class Calc {
         Scanner in = new Scanner(System.in);
         String operation = in.nextLine().replaceAll("\\s","");
         String inope =  "";
+        Stack<String> ops = new Stack<String>();
         //1+2*(3-4+(5*6-7)+8)-(9*10) test case
         String tempop = "";
         int count = 0;
@@ -16,15 +17,19 @@ public class Calc {
             if(count==0){
                 inope= inope + (Character.toString(operation.charAt(i)));
             }else if(operation.charAt(i)==')') {
+                if(!ops.isEmpty()){
+                    tempop = ops.peek() + calculater(tempop);
+                    ops.pop();
+                }else{
+                    inope = inope + calculater(tempop);
+                }
                 count--;
             }else {
+                tempop=tempop+Character.toString(operation.charAt(i));
                  if(operation.charAt(i+1)=='(') {
-                     inope = inope + (calculater(tempop));
-                     inope = inope + (Character.toString(operation.charAt(i)));
+                     ops.push(tempop);
                      tempop = "";
-                 }else {
-                    tempop=tempop+Character.toString(operation.charAt(i));
-                 }               
+                 }
             }
         }
         System.out.println(calculater(inope));
