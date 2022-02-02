@@ -1,8 +1,11 @@
+import java.io.BufferedWriter;
+import java.io.OutputStreamWriter;
 import java.util.Scanner;
 
 public class boj10828 {
     public static void main(String[] args) {
         Scanner in = new Scanner(System.in);
+        BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
         int l = in.nextInt();
         String line[][] = new String[l][2];
         in.nextLine();
