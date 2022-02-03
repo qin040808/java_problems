@@ -1,9 +1,10 @@
 import java.io.BufferedWriter;
+import java.io.IOException;
 import java.io.OutputStreamWriter;
 import java.util.Scanner;
 
 public class boj10828 {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
         Scanner in = new Scanner(System.in);
         BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
         int l = in.nextInt();
@@ -21,19 +22,20 @@ public class boj10828 {
                     place++;
                     break;
                 case "pop":
-                    System.out.println(place == 0 ? -1 : stack[place-1]);
+                    bw.write(Integer.toString(place == 0 ? -1 : stack[place-1]));
                     place= place > 0 ? --place : 0 ;
                     break;
                 case "size":
-                    System.out.println(place);
+                    bw.write(Integer.toString(place));
                     break;
-                case "empty":
-                    System.out.println(place == 0 ? 1 : 0);
+                    case "empty":
+                    bw.write(Integer.toString(place == 0 ? 1 : 0));
                     break;
-                case "top":
-                    System.out.println(place == 0 ? -1 : stack[place-1]);
+                    case "top":
+                    bw.write(Integer.toString(place == 0 ? -1 : stack[place-1]));
                     break;
             }
+            bw.close();
         }
         in.close();
     }
