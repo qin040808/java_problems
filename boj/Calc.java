@@ -9,7 +9,7 @@ public class Calc {
         String tempop = "";
         int count = 0;
         for (int i = 0; i < operation.length(); i++) {
-            if(operation.charAt(i)=='(') {
+            while(operation.charAt(i)=='(') {
                 count++;
                 i++;
             }
