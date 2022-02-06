@@ -8,6 +8,7 @@ public class Calc {
         Stack<String> ops = new Stack<String>();
         String tempop = "";
         int count = 0;
+        //((6+6)*8+((6+7)*2)) new error code
         for (int i = 0; i < operation.length(); i++) {
             while(operation.charAt(i)=='(') {
                 count++;
@@ -16,6 +17,7 @@ public class Calc {
             if(count==0){
                 inope= inope + (Character.toString(operation.charAt(i)));
             }else if(operation.charAt(i)==')') {
+                if (tempop.charAt(0) == )
                 if(!ops.isEmpty()){
                     tempop = ops.peek() + calculater(tempop);
                     ops.pop();
