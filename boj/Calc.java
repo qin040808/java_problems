@@ -14,25 +14,29 @@ public class Calc {
                 count++;
                 i++;
             }
-            if(count==0){
-                inope= inope + (Character.toString(operation.charAt(i)));
-            }else if(operation.charAt(i)==')') {
-                if (tempop.charAt(0) == )
-                if(!ops.isEmpty()){
-                    tempop = ops.peek() + calculater(tempop);
-                    ops.pop();
-                }else{
-                    inope = inope + calculater(tempop);
-                    tempop = "";
-                }
-                count--;
-            }else {
-                tempop=tempop+Character.toString(operation.charAt(i));
-                 if(operation.charAt(i+1)=='(') {
-                     ops.push(tempop);
-                     tempop = "";
-                 }
+            if(operation.charAt(i)==')') {
+                
             }
+
+            // if(count==0){
+            //     inope= inope + (Character.toString(operation.charAt(i)));
+            // }else if(operation.charAt(i)==')') {
+            //     if (tempop.charAt(0) == )
+            //     if(!ops.isEmpty()){
+            //         tempop = ops.peek() + calculater(tempop);
+            //         ops.pop();
+            //     }else{
+            //         inope = inope + calculater(tempop);
+            //         tempop = "";
+            //     }
+            //     count--;
+            // }else {
+            //     tempop=tempop+Character.toString(operation.charAt(i));
+            //      if(operation.charAt(i+1)=='(') {
+            //          ops.push(tempop);
+            //          tempop = "";
+            //      }
+            // }
         }
         System.out.println(calculater(inope));
         in.close();
