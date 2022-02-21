@@ -50,25 +50,19 @@ public class boj10866 {
 		}
 		System.out.println(sb);
 	}
-
 	static void push_front(int val) {
 		// 원소를 먼저 넣은 뒤 front을 감소시킨다.
 		deque[front] = val;
 		front--;
 		size++;
 	}
-	
 	static void push_back(int val) {
-		
 		back++;
 		size++;
 		deque[back] = val;
 	}
-	
 	static int pop_front() {
-		if (size == 0) {
-			return -1;
-		} 
+		if (size == 0) {return -1;} 
 		/*
 		 *  front + 1이 front 원소이므로 해당 원소를 임시 변수에 둔 뒤 
 		 *  front 을 +1 증가시킨다.
@@ -78,40 +72,27 @@ public class boj10866 {
 		size--;	
 		return ret;
 	}
-	
 	static int pop_back() {
-		if (size == 0) {
-			return -1;
-		} 
+		if (size == 0) {return -1;} 
 		int ret = deque[back];
 		back--;
 		size--;
 		return ret;
 	}
-	
 	static int size() {
 		return size;
 	}
-	
+
 	static int empty() {
-		if(size == 0) {
-			return 1;
-		}
+		if(size == 0) {return 1;}
 		return 0;
 	}
-	
 	static int front() {
-		if(size == 0) {
-			return -1;
-		}
+		if(size == 0) {return -1;}
 		return deque[front + 1];
 	}
-	
 	static int back() {
-		if(size == 0) {
-			return -1;
-		}
+		if(size == 0) {return -1;}
 		return deque[back];
 	}
-	
 }
