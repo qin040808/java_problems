@@ -51,7 +51,6 @@ public class boj10866 {
 		System.out.println(sb);
 	}
 	static void push_front(int val) {
-		// 원소를 먼저 넣은 뒤 front을 감소시킨다.
 		deque[front] = val;
 		front--;
 		size++;
@@ -63,10 +62,6 @@ public class boj10866 {
 	}
 	static int pop_front() {
 		if (size == 0) {return -1;} 
-		/*
-		 *  front + 1이 front 원소이므로 해당 원소를 임시 변수에 둔 뒤 
-		 *  front 을 +1 증가시킨다.
-		 */
 		int ret = deque[front + 1];
 		front++;
 		size--;	
