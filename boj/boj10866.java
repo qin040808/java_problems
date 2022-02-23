@@ -77,7 +77,6 @@ public class boj10866 {
 	static int size() {
 		return size;
 	}
-
 	static int empty() {
 		if(size == 0) {return 1;}
 		return 0;
