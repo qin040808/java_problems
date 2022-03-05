@@ -13,7 +13,7 @@ public class boj11866 {
         Stack<Integer> st = new Stack<Integer>(); 
         for (int i = 1; i <= n; i++) {
             st.push(i);
-        }ff
+        }
         int i = 0;
         sb.append("<");
         while(!st.empty()) {
