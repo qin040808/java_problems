@@ -27,7 +27,7 @@ public class boj1211_not {
         //idk how lol help
         arr[0] = 1;
         s.push(1L);
-        long compare = 1;
+        // long compare = 1;
         for (long i = 1L; i <  2599999999L; i++) {
             if(Long.toString(i).contains("0")){
                 continue;
