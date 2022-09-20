@@ -4,7 +4,7 @@ import java.math.BigInteger;
 import java.util.Stack;
 import java.util.StringTokenizer;
 
-public class boj1211 {
+public class boj1211_not {
     public static void main(String[] args) throws Exception {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         int arr[] = new int[259999999];
